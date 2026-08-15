@@ -1,0 +1,35 @@
+{
+  "chain": "ethereum",
+  "monitoredAddresses": [],
+  "knownMultisigs": [],
+  "eventSignatures": [
+    "OwnershipTransferred(address,address)",
+    "RoleGranted(bytes32,address,address)",
+    "RoleRevoked(bytes32,address,address)",
+    "Paused(address)",
+    "Unpaused(address)",
+    "Upgraded(address)",
+    "AdminChanged(address,address)",
+    "ExecutionSuccess(bytes32,uint256)",
+    "ExecutionFailure(bytes32,uint256)",
+    "PayloadExecuted(uint40)"
+  ],
+  "proxySlotMonitoring": {
+    "enabled": false,
+    "proxies": [
+      {
+        "name": "Example Proxy",
+        "address": "0x0000000000000000000000000000000000000000",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      }
+    ]
+  },
+  "allowlists": {
+    "knownActors": [],
+    "knownAdmins": [],
+    "knownImplementations": [],
+    "knownGovernanceContracts": [],
+    "knownProxyAddresses": []
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "chain": "ethereum",
+  "monitoredAddresses": [],
+  "knownMultisigs": [],
+  "eventSignatures": [
+    "OwnershipTransferred(address,address)",
+    "RoleGranted(bytes32,address,address)",
+    "RoleRevoked(bytes32,address,address)",
+    "Paused(address)",
+    "Unpaused(address)",
+    "Upgraded(address)",
+    "AdminChanged(address,address)",
+    "ExecutionSuccess(bytes32,uint256)",
+    "ExecutionFailure(bytes32,uint256)",
+    "PayloadExecuted(uint40)"
+  ],
+  "proxySlotMonitoring": {
+    "enabled": false,
+    "proxies": []
+  },
+  "economicMonitoring": {
+    "assets": [
+      {
+        "name": "Synthetic Restaked Asset",
+        "tokenAddress": "0x1000000000000000000000000000000000000001",
+        "decimals": 0,
+        "criticalContracts": [
+          {
+            "name": "Synthetic Integrated Vault",
+            "address": "0x2000000000000000000000000000000000000001",
+            "role": "vault"
+          }
+        ],
+        "thresholds": {
+          "largeTransferAbsolute": "100",
+          "singleBlockOutflowAbsolute": "500",
+          "singleBlockOutflowPercent": 10,
+          "windowOutflowPercent": 20,
+          "concentrationPercent": 60,
+          "criticalOutflowPercent": 50,
+          "criticalDrawdownPercent": 50
+        },
+        "windowBlocks": 20
+      }
+    ]
+  },
+  "allowlists": {
+    "knownActors": [],
+    "knownAdmins": [],
+    "knownImplementations": [],
+    "knownGovernanceContracts": [],
+    "knownProxyAddresses": []
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "_calibration": {
+    "caseId": "safe-modules-historical-calibration-001",
+    "baselineProfile": "strict",
+    "recommendedProfile": "balanced",
+    "fixedCreatedAt": "2026-08-01T12:00:00.000Z",
+    "expectedSafeSingleton": "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+    "expectedModuleAvatar": "0x4F2083f5fBede34C2714aFfb3105539775f7FE64",
+    "expectedModuleTarget": "0x4F2083f5fBede34C2714aFfb3105539775f7FE64",
+    "expectedModuleOwner": "0x4F2083f5fBede34C2714aFfb3105539775f7FE64",
+    "expectedOuterManagerSafe": "0xb423e0f6E7430fa29500c5cC9bd83D28c8BD8978",
+    "expectedRoleKey": "0x4d414e4147455200000000000000000000000000000000000000000000000000",
+    "rpcMaxBlockRange": "1",
+    "outputFile": "alerts/safe-modules-historical-calibration-001.jsonl",
+    "permissionOutputFile": "alerts/ens-endowment-bal-cow-zodiac-permission-calibration-001.jsonl",
+    "resultsFile": "artifacts/safe-modules-historical-calibration-001-results.json",
+    "transactions": [
+      {
+        "category": "routine",
+        "label": "ENS Endowment withdraws DAI from Aave V3",
+        "transactionHash": "0x0e5064ba018dcb1dcf12c52446f2fe2730c8d026ebe20610ca1314f635327164",
+        "blockNumber": "25539670",
+        "referenceTopLevelOperations": 1,
+        "referenceLeafOperations": 1,
+        "referenceSummary": "CALL Aave V3 Pool withdraw(DAI,max,Endowment)"
+      },
+      {
+        "category": "composed",
+        "label": "ENS Endowment approves and requests a withdrawal in one outer transaction",
+        "transactionHash": "0xde31216aed943474812cfc795eef0cd21472b23fef3af883f37344fd7c7d1561",
+        "blockNumber": "25553567",
+        "referenceTopLevelOperations": 2,
+        "referenceLeafOperations": 2,
+        "referenceSummary": "CALL approve plus CALL requestWithdraw"
+      },
+      {
+        "category": "delegatecall-multisend",
+        "label": "ENS Endowment Roles v2 delegates to MultiSend for approval and CoW settlement",
+        "transactionHash": "0x1bb8d5d64359b002aa6d5d2bfd449d5593e51568bbac0baed05c6705abf3e13e",
+        "blockNumber": "20663640",
+        "referenceTopLevelOperations": 1,
+        "referenceLeafOperations": 2,
+        "referenceSummary": "DELEGATECALL MultiSend containing BAL approval and settlement subcall"
+      },
+      {
+        "category": "material-native-value",
+        "label": "ENS Endowment submits 1023.8 ETH to Lido stETH",
+        "transactionHash": "0xd2efdb18035ffc6418178cc8fbb7ccd3bbe6fe3c69512c6215e469406eba622f",
+        "blockNumber": "25597124",
+        "referenceTopLevelOperations": 1,
+        "referenceLeafOperations": 1,
+        "referenceSummary": "CALL stETH submit with 1023800000000000000000 wei"
+      }
+    ],
+    "profiles": {
+      "strict": {
+        "allowedTargets": [],
+        "allowedSelectors": [],
+        "allowedOperations": ["CALL"],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "0",
+        "allowedModules": [],
+        "modulePolicies": [
+          {
+            "name": "ENS Endowment Zodiac Roles Modifier v2",
+            "address": "0x703806E61847984346d2D7DDd853049627e50A40",
+            "allowedTargets": [],
+            "allowedSelectors": [],
+            "allowedOperations": ["CALL"],
+            "allowedImplementations": [],
+            "maxNativeValueWei": "0",
+            "adapter": {
+              "type": "ZODIAC_ROLES_V2",
+              "managerSafes": ["0xb423e0f6E7430fa29500c5cC9bd83D28c8BD8978"]
+            }
+          }
+        ]
+      },
+      "balanced": {
+        "allowedTargets": [
+          "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+          "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
+          "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+          "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+          "0xba100000625a3754423978a60c9317c58a424e3D",
+          "0x23dA9AdE38E4477b23770DeD512fD37b12381FAB"
+        ],
+        "allowedSelectors": ["0x69328dec", "0x095ea7b3", "0xccc143b8", "0x8d80ff0a", "0xa1903eab", "0x569d3489"],
+        "allowedOperations": ["CALL", "DELEGATECALL"],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "1100000000000000000000",
+        "allowedModules": ["0x703806E61847984346d2D7DDd853049627e50A40"],
+        "modulePolicies": [
+          {
+            "name": "ENS Endowment Zodiac Roles Modifier v2",
+            "address": "0x703806E61847984346d2D7DDd853049627e50A40",
+            "allowedTargets": [
+              "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+              "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+              "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
+              "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+              "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+              "0xba100000625a3754423978a60c9317c58a424e3D",
+              "0x23dA9AdE38E4477b23770DeD512fD37b12381FAB"
+            ],
+            "allowedSelectors": ["0x69328dec", "0x095ea7b3", "0xccc143b8", "0x8d80ff0a", "0xa1903eab", "0x569d3489"],
+            "allowedOperations": ["CALL", "DELEGATECALL"],
+            "allowedImplementations": [],
+            "maxNativeValueWei": "1100000000000000000000",
+            "adapter": {
+              "type": "ZODIAC_ROLES_V2",
+              "managerSafes": ["0xb423e0f6E7430fa29500c5cC9bd83D28c8BD8978"]
+            }
+          }
+        ]
+      },
+      "permissive": {
+        "allowedTargets": [
+          "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+          "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
+          "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+          "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+          "0xba100000625a3754423978a60c9317c58a424e3D",
+          "0x23dA9AdE38E4477b23770DeD512fD37b12381FAB"
+        ],
+        "allowedSelectors": ["0x69328dec", "0x095ea7b3", "0xccc143b8", "0x8d80ff0a", "0xa1903eab", "0x569d3489"],
+        "allowedOperations": ["CALL", "DELEGATECALL"],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "10000000000000000000000",
+        "allowedModules": ["0x703806E61847984346d2D7DDd853049627e50A40"],
+        "modulePolicies": [
+          {
+            "name": "ENS Endowment Zodiac Roles Modifier v2",
+            "address": "0x703806E61847984346d2D7DDd853049627e50A40",
+            "allowedTargets": [
+              "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+              "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+              "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
+              "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+              "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+              "0xba100000625a3754423978a60c9317c58a424e3D",
+              "0x23dA9AdE38E4477b23770DeD512fD37b12381FAB"
+            ],
+            "allowedSelectors": ["0x69328dec", "0x095ea7b3", "0xccc143b8", "0x8d80ff0a", "0xa1903eab", "0x569d3489"],
+            "allowedOperations": ["CALL", "DELEGATECALL"],
+            "allowedImplementations": [],
+            "maxNativeValueWei": "10000000000000000000000",
+            "adapter": {
+              "type": "ZODIAC_ROLES_V2",
+              "managerSafes": ["0xb423e0f6E7430fa29500c5cC9bd83D28c8BD8978"]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "chain": "ethereum",
+  "monitoredAddresses": ["0x4F2083f5fBede34C2714aFfb3105539775f7FE64"],
+  "knownMultisigs": ["0x4F2083f5fBede34C2714aFfb3105539775f7FE64"],
+  "eventSignatures": [
+    "ExecutionFromModuleSuccess(address)",
+    "ExecutionFromModuleFailure(address)",
+    "Upgraded(address)",
+    "AdminChanged(address,address)",
+    "OwnershipTransferred(address,address)",
+    "RoleGranted(bytes32,address,address)",
+    "RoleRevoked(bytes32,address,address)",
+    "Paused(address)",
+    "Unpaused(address)"
+  ],
+  "administrativeMonitoring": {
+    "multisigs": [
+      {
+        "name": "ENS DAO Endowment",
+        "address": "0x4F2083f5fBede34C2714aFfb3105539775f7FE64",
+        "criticality": "critical",
+        "allowedTargets": [],
+        "allowedSelectors": [],
+        "allowedOperations": ["CALL"],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "0",
+        "allowedOwners": [],
+        "minimumThreshold": 1,
+        "allowedThresholds": [],
+        "allowedModules": [],
+        "allowedGuards": [],
+        "allowedFallbackHandlers": [],
+        "multisendAlertDetail": "sensitive-only",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": false,
+          "emitAllowedApprovals": false,
+          "maxNativeValueWei": "0",
+          "notableTokenTargets": []
+        },
+        "modulePolicies": []
+      }
+    ],
+    "multisendContracts": [
+      {
+        "name": "Safe MultiSend 1.3.0",
+        "address": "0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761",
+        "mode": "MULTISEND"
+      },
+      {
+        "name": "Safe MultiSendCallOnly 1.3.0",
+        "address": "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+        "mode": "CALL_ONLY"
+      }
+    ],
+    "multisendLimits": {
+      "maxDepth": 2,
+      "maxSuboperations": 64,
+      "maxTotalPayloadBytes": 65536,
+      "maxSuboperationDataBytes": 16384
+    }
+  },
+  "proxySlotMonitoring": {
+    "enabled": true,
+    "proxies": [
+      {
+        "name": "Aave V3 Ethereum Pool",
+        "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      }
+    ]
+  },
+  "allowlists": {
+    "knownActors": [],
+    "knownAdmins": [],
+    "knownImplementations": [],
+    "knownGovernanceContracts": [],
+    "knownProxyAddresses": []
+  }
+}

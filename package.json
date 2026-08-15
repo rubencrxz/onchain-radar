@@ -1,0 +1,33 @@
+{
+  "name": "onchain-radar",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Deterministic Ethereum security monitoring with explainable alerts.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "scan": "npm run build && node dist/scan.js",
+    "live": "npm run build && node dist/live.js",
+    "live:replay:kelp": "npm run build && node dist/liveReplay.js",
+    "live:replay:safe": "npm run build && node dist/safeReplay.js",
+    "live:replay:multisend": "npm run build && node dist/multisendReplay.js",
+    "live:replay:safe-events": "npm run build && node dist/safeEventsReplay.js",
+    "live:replay:safe-modules": "npm run build && node dist/safeModuleReplay.js",
+    "live:replay:zodiac-roles": "npm run build && node dist/zodiacRolesReplay.js",
+    "test": "tsc -p tsconfig.test.json && node --test --test-reporter=spec dist-tests/tests/economicConfig.test.js dist-tests/tests/economicDetectors.test.js dist-tests/tests/economicTransfers.test.js dist-tests/tests/eip1967.test.js dist-tests/tests/historicalScanner.test.js dist-tests/tests/live.test.js dist-tests/tests/multisendConfig.test.js dist-tests/tests/multisendIntegration.test.js dist-tests/tests/multisendMonitoring.test.js dist-tests/tests/multisendParser.test.js dist-tests/tests/processor.test.js dist-tests/tests/ranges.test.js dist-tests/tests/rpc.test.js dist-tests/tests/safeConfig.test.js dist-tests/tests/safeDecoderPolicy.test.js dist-tests/tests/safeLive.test.js dist-tests/tests/safeMonitoring.test.js dist-tests/tests/safeModules.test.js dist-tests/tests/safeNativeEvents.test.js dist-tests/tests/safeRpc.test.js dist-tests/tests/safeSemanticNoise.test.js dist-tests/tests/sinks.test.js dist-tests/tests/zodiacPermissions.test.js dist-tests/tests/zodiacRoles.test.js",
+    "typecheck": "tsc --noEmit",
+    "smoke": "npm run build && node dist/smoke.js",
+    "economic:demo": "npm run build && node dist/economicDemo.js",
+    "economic:calibrate": "npm run build && node dist/economicCalibration.js",
+    "safe:multisend:calibrate": "npm run build && node dist/safeMultisendCalibration.js",
+    "safe:modules:calibrate": "npm run build && node dist/safeModuleCalibration.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "viem": "2.21.53"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

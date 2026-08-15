@@ -1,0 +1,117 @@
+{
+  "chain": "ethereum",
+  "monitoredAddresses": [
+    "0x1000000000000000000000000000000000000001",
+    "0x2000000000000000000000000000000000000002"
+  ],
+  "knownMultisigs": [
+    "0x1000000000000000000000000000000000000001"
+  ],
+  "eventSignatures": [
+    "ExecutionSuccess(bytes32,uint256)",
+    "ExecutionFailure(bytes32,uint256)",
+    "ExecutionFromModuleSuccess(address)",
+    "ExecutionFromModuleFailure(address)",
+    "Upgraded(address)",
+    "AdminChanged(address,address)",
+    "OwnershipTransferred(address,address)",
+    "RoleGranted(bytes32,address,address)",
+    "RoleRevoked(bytes32,address,address)",
+    "Paused(address)",
+    "Unpaused(address)"
+  ],
+  "administrativeMonitoring": {
+    "multisigs": [
+      {
+        "name": "Example Protocol Security Council",
+        "address": "0x1000000000000000000000000000000000000001",
+        "criticality": "critical",
+        "allowedTargets": [
+          "0x2000000000000000000000000000000000000002",
+          "0x7000000000000000000000000000000000000007"
+        ],
+        "allowedSelectors": [
+          "0x3659cfe6",
+          "0x8d80ff0a"
+        ],
+        "allowedOperations": [
+          "CALL",
+          "DELEGATECALL"
+        ],
+        "allowedImplementations": [
+          "0x4000000000000000000000000000000000000004"
+        ],
+        "maxNativeValueWei": "0",
+        "allowedOwners": ["0x5000000000000000000000000000000000000005"],
+        "minimumThreshold": 2,
+        "allowedThresholds": [2, 3],
+        "allowedModules": ["0x6000000000000000000000000000000000000006"],
+        "allowedGuards": ["0x6000000000000000000000000000000000000006"],
+        "allowedFallbackHandlers": ["0x6000000000000000000000000000000000000006"],
+        "multisendAlertDetail": "sensitive-only",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": false,
+          "emitAllowedApprovals": false,
+          "maxNativeValueWei": "0",
+          "notableTokenTargets": []
+        },
+        "modulePolicies": [
+          {
+            "name": "Example Automation Module",
+            "address": "0x6000000000000000000000000000000000000006",
+            "allowedTargets": ["0x2000000000000000000000000000000000000002"],
+            "allowedSelectors": ["0x3659cfe6"],
+            "allowedOperations": ["CALL"],
+            "allowedImplementations": ["0x4000000000000000000000000000000000000004"],
+            "maxNativeValueWei": "0",
+            "adapter": {
+              "type": "ZODIAC_ROLES_V2",
+              "managerSafes": ["0x9000000000000000000000000000000000000009"]
+            }
+          }
+        ]
+      }
+    ],
+    "multisendContracts": [
+      {
+        "name": "Example Safe MultiSend",
+        "address": "0x7000000000000000000000000000000000000007",
+        "mode": "MULTISEND"
+      }
+    ],
+    "multisendLimits": {
+      "maxDepth": 2,
+      "maxSuboperations": 256,
+      "maxTotalPayloadBytes": 1048576,
+      "maxSuboperationDataBytes": 262144
+    }
+  },
+  "proxySlotMonitoring": {
+    "enabled": true,
+    "proxies": [
+      {
+        "name": "Example Proxy",
+        "address": "0x2000000000000000000000000000000000000002",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      }
+    ]
+  },
+  "allowlists": {
+    "knownActors": [],
+    "knownAdmins": [],
+    "knownImplementations": [
+      {
+        "name": "Example Implementation",
+        "address": "0x4000000000000000000000000000000000000004"
+      }
+    ],
+    "knownGovernanceContracts": [],
+    "knownProxyAddresses": [
+      {
+        "name": "Example Proxy",
+        "address": "0x2000000000000000000000000000000000000002"
+      }
+    ]
+  }
+}

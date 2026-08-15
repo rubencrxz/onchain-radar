@@ -1,0 +1,248 @@
+{
+  "_calibration": {
+    "caseId": "safe-multisend-historical-calibration-001",
+    "baselineProfile": "strict",
+    "postAnalysisProfile": "balanced",
+    "fixedCreatedAt": "2026-08-01T00:00:00.000Z",
+    "expectedSafeSingleton": "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+    "expectedSafeVersion": "1.3.0",
+    "rpcMaxBlockRange": "1",
+    "controlRange": {
+      "startBlock": "21612468",
+      "endBlock": "21829964",
+      "rpcMaxBlockRange": "1"
+    },
+    "controlTransactions": [
+      { "transactionHash": "0x73868c291324645d95fdbd18ff8b388f1e085b4954d32613c07a4d48732367d2", "blockNumber": "21612468" },
+      { "transactionHash": "0xdd6a9c52b7ebbaeec5f8b52e45d7fe88afab49dacfce422ec40cdff2ff665953", "blockNumber": "21645921" },
+      { "transactionHash": "0xa66e95b4a12e78725d6deead26841ea5b74fc62758a5f225c8e14d41e752a0b6", "blockNumber": "21645942" },
+      { "transactionHash": "0x46aca713338937d99ec1ce522aeef79e95af864860b3d807b724b94e744dbfd6", "blockNumber": "21702925" },
+      { "transactionHash": "0xa24f99865b86ece0a259457dd97141a2f3cd7c58765fd3a7a9c6bbb8de1f0c13", "blockNumber": "21702943" },
+      { "transactionHash": "0xb7dbea856a5f765661de919faf47032bf0fdda55293322f4e95edbdda12d9772", "blockNumber": "21746761" },
+      { "transactionHash": "0x698d525e766c2cedd8dee97f12f7dcc28b242c940ce436997760a1faa1983bf9", "blockNumber": "21766574" },
+      { "transactionHash": "0x2acf25fd9ad3c2dfcaa44f15c517839c5ff083f92ff48da1cefde3a3b908a57e", "blockNumber": "21795158" },
+      { "transactionHash": "0x3091e4585697d47f57bda6d260e55da1271c1d6cd22f4ef3a5e6cd73bbbb5ad3", "blockNumber": "21795236" },
+      { "transactionHash": "0x07f971c305d5baba2138148930e220e0522cf280db53e2a28c1e3883518fbd9f", "blockNumber": "21795281" },
+      { "transactionHash": "0xd676dbc717031cff4453a734afd270f24a73b4ced7c7d2195b951ffc500adb70", "blockNumber": "21795313" },
+      { "transactionHash": "0xe8e609859de8b48e8c854b7b3b2d8ed94f884700dfd4feec99909a40a4923a3e", "blockNumber": "21795373" },
+      { "transactionHash": "0x76c90ae8e78da431080d327dfa5a87cc050cd98d4764ae3fc02f06d5e1828d77", "blockNumber": "21795395" },
+      { "transactionHash": "0x76af88c1dd168f9f5f31fc9b022974beca5c39e1337b990b2643dde3df35b3ef", "blockNumber": "21795476" },
+      { "transactionHash": "0xe76481081b1fd0bf6194c8192315a3433e35e80944874928ea6e68dbd467a8f3", "blockNumber": "21795584" },
+      { "transactionHash": "0xcf9dccfff9b2a5907282e81a82d6b4ef13a94c336279819e497a275b8b262f08", "blockNumber": "21829964" }
+    ],
+    "outputFile": "alerts/safe-multisend-historical-calibration-001.jsonl",
+    "resultsFile": "artifacts/safe-multisend-historical-calibration-001-results.json",
+    "transactions": [
+      {
+        "category": "routine",
+        "label": "Meta-Governance January 2025 USDC contributor payments",
+        "transactionHash": "0xb7dbea856a5f765661de919faf47032bf0fdda55293322f4e95edbdda12d9772",
+        "blockNumber": "21746761"
+      },
+      {
+        "category": "sensitive",
+        "label": "Meta-Governance owner rotation and threshold confirmation",
+        "transactionHash": "0xd646d8f1171eb33a23d8259eb237c173b13b8eb8c2060ff0860e4c21745985f1",
+        "blockNumber": "25647884"
+      },
+      {
+        "category": "composed",
+        "label": "Meta-Governance WETH wrap, approval and CoW presignature",
+        "transactionHash": "0xc3ba44348b42537c2ca6978096d44d3f9e5ab04d6e4d134daea7caf01ba5727a",
+        "blockNumber": "22406922"
+      }
+    ],
+    "profiles": {
+      "strict": {
+        "allowedTargets": [
+          "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+          "0x91c32893216dE3eA0a55ABb9851f581d4503d39b",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ],
+        "allowedSelectors": [
+          "0x8d80ff0a",
+          "0xa9059cbb",
+          "0xe318b52b",
+          "0x694e80c3"
+        ],
+        "allowedOperations": [
+          "CALL",
+          "DELEGATECALL"
+        ],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "0",
+        "allowedOwners": [
+          "0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7",
+          "0x7d7e46bEF5064CFae2CeD5CC627141005D1cDe76",
+          "0x7Bd3AB8fA37d63c04a8d0BeE3298088C0f366709"
+        ],
+        "minimumThreshold": 2,
+        "allowedThresholds": [2],
+        "allowedModules": [],
+        "allowedGuards": [],
+        "allowedFallbackHandlers": [],
+        "multisendAlertDetail": "all",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": true,
+          "emitAllowedApprovals": true,
+          "maxNativeValueWei": "0",
+          "notableTokenTargets": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+        }
+      },
+      "balanced": {
+        "allowedTargets": [
+          "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+          "0x91c32893216dE3eA0a55ABb9851f581d4503d39b",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+        ],
+        "allowedSelectors": [
+          "0x8d80ff0a",
+          "0xa9059cbb",
+          "0xe318b52b",
+          "0x694e80c3",
+          "0x095ea7b3"
+        ],
+        "allowedOperations": [
+          "CALL",
+          "DELEGATECALL"
+        ],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "30000000000000000000",
+        "allowedOwners": [
+          "0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7",
+          "0x7d7e46bEF5064CFae2CeD5CC627141005D1cDe76",
+          "0x7Bd3AB8fA37d63c04a8d0BeE3298088C0f366709"
+        ],
+        "minimumThreshold": 2,
+        "allowedThresholds": [2],
+        "allowedModules": [],
+        "allowedGuards": [],
+        "allowedFallbackHandlers": [],
+        "multisendAlertDetail": "sensitive-only",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": false,
+          "emitAllowedApprovals": false,
+          "maxNativeValueWei": "30000000000000000000",
+          "notableTokenTargets": []
+        }
+      },
+      "permissive": {
+        "allowedTargets": [
+          "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+          "0x91c32893216dE3eA0a55ABb9851f581d4503d39b",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+        ],
+        "allowedSelectors": [
+          "0x8d80ff0a",
+          "0xa9059cbb",
+          "0xe318b52b",
+          "0x694e80c3",
+          "0xd0e30db0",
+          "0x095ea7b3",
+          "0xec6cb13f"
+        ],
+        "allowedOperations": [
+          "CALL",
+          "DELEGATECALL"
+        ],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "100000000000000000000",
+        "allowedOwners": [
+          "0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7",
+          "0x7d7e46bEF5064CFae2CeD5CC627141005D1cDe76",
+          "0x7Bd3AB8fA37d63c04a8d0BeE3298088C0f366709"
+        ],
+        "minimumThreshold": 2,
+        "allowedThresholds": [2, 3],
+        "allowedModules": [],
+        "allowedGuards": [],
+        "allowedFallbackHandlers": [],
+        "multisendAlertDetail": "violations-only",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": false,
+          "emitAllowedApprovals": false,
+          "maxNativeValueWei": "100000000000000000000",
+          "notableTokenTargets": []
+        }
+      }
+    }
+  },
+  "chain": "ethereum",
+  "monitoredAddresses": [
+    "0x91c32893216dE3eA0a55ABb9851f581d4503d39b"
+  ],
+  "knownMultisigs": [
+    "0x91c32893216dE3eA0a55ABb9851f581d4503d39b"
+  ],
+  "eventSignatures": [
+    "ExecutionSuccess(bytes32,uint256)",
+    "ExecutionFailure(bytes32,uint256)"
+  ],
+  "administrativeMonitoring": {
+    "multisigs": [
+      {
+        "name": "ENS DAO Meta-Governance Working Group",
+        "address": "0x91c32893216dE3eA0a55ABb9851f581d4503d39b",
+        "criticality": "high",
+        "allowedTargets": [
+          "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+          "0x91c32893216dE3eA0a55ABb9851f581d4503d39b",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ],
+        "allowedSelectors": [
+          "0x8d80ff0a",
+          "0xa9059cbb",
+          "0xe318b52b",
+          "0x694e80c3"
+        ],
+        "allowedOperations": [
+          "CALL",
+          "DELEGATECALL"
+        ],
+        "allowedImplementations": [],
+        "maxNativeValueWei": "0",
+        "allowedOwners": [],
+        "minimumThreshold": 2,
+        "allowedThresholds": [2],
+        "allowedModules": [],
+        "allowedGuards": [],
+        "allowedFallbackHandlers": [],
+        "multisendAlertDetail": "all",
+        "financialOperationPolicy": {
+          "emitAllowedTransfers": true,
+          "emitAllowedApprovals": true,
+          "maxNativeValueWei": "0",
+          "notableTokenTargets": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+        }
+      }
+    ],
+    "multisendContracts": [
+      {
+        "name": "Safe MultiSendCallOnly 1.3.0",
+        "address": "0x40A2aCCbd92BCA938b02010E17A5b8929b49130D",
+        "mode": "CALL_ONLY"
+      }
+    ],
+    "multisendLimits": {
+      "maxDepth": 2,
+      "maxSuboperations": 64,
+      "maxTotalPayloadBytes": 65536,
+      "maxSuboperationDataBytes": 16384
+    }
+  },
+  "proxySlotMonitoring": {
+    "enabled": false,
+    "proxies": []
+  },
+  "allowlists": {
+    "knownActors": [],
+    "knownAdmins": [],
+    "knownImplementations": [],
+    "knownGovernanceContracts": [],
+    "knownProxyAddresses": []
+  }
+}

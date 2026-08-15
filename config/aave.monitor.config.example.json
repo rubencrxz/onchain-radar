@@ -1,0 +1,160 @@
+{
+  "chain": "ethereum",
+  "monitoredAddresses": [
+    "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+    "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+    "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+    "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+    "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
+    "0x0a16f2FCC0D44FaE41cc54e079281D84A363bECD",
+    "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+    "0xD3cF979e676265e4f6379749DECe4708B9A22476",
+    "0x86C3FfeE349A7cFf7cA88C449717B1b133bfb517",
+    "0x9AEE0B04504CeF83A65AC3f0e838D0593BCb2BC7",
+    "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5",
+    "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A",
+    "0x17Dd33Ed0e3dD2a80E37489B8A63063161BE6957",
+    "0xCe52ab41C40575B072A18C9700091Ccbe4A06710",
+    "0x4457cA11E90f416Cc1D3a8E1cA41C0cdEcC251d4"
+  ],
+  "knownMultisigs": [],
+  "eventSignatures": [
+    "OwnershipTransferred(address,address)",
+    "RoleGranted(bytes32,address,address)",
+    "RoleRevoked(bytes32,address,address)",
+    "Paused(address)",
+    "Unpaused(address)",
+    "Upgraded(address)",
+    "AdminChanged(address,address)",
+    "ExecutionSuccess(bytes32,uint256)",
+    "ExecutionFailure(bytes32,uint256)",
+    "PayloadExecuted(uint40)"
+  ],
+  "proxySlotMonitoring": {
+    "enabled": true,
+    "proxies": [
+      {
+        "name": "AaveV3Ethereum.POOL",
+        "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      },
+      {
+        "name": "AaveV3Ethereum.POOL_CONFIGURATOR",
+        "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      },
+      {
+        "name": "AaveV3Ethereum.COLLECTOR",
+        "address": "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      },
+      {
+        "name": "GovernanceV3Ethereum.PAYLOADS_CONTROLLER",
+        "address": "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      },
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE",
+        "address": "0x9AEE0B04504CeF83A65AC3f0e838D0593BCb2BC7",
+        "checkImplementationSlot": true,
+        "checkAdminSlot": true
+      }
+    ]
+  },
+  "allowlists": {
+    "knownActors": [
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE",
+        "address": "0x9AEE0B04504CeF83A65AC3f0e838D0593BCb2BC7"
+      },
+      {
+        "name": "GovernanceV3Ethereum.PAYLOADS_CONTROLLER",
+        "address": "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5"
+      },
+      {
+        "name": "GovernanceV3Ethereum.EXECUTOR_LVL_1",
+        "address": "0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A"
+      },
+      {
+        "name": "GovernanceV3Ethereum.EXECUTOR_LVL_2",
+        "address": "0x17Dd33Ed0e3dD2a80E37489B8A63063161BE6957"
+      },
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE_GUARDIAN",
+        "address": "0xCe52ab41C40575B072A18C9700091Ccbe4A06710"
+      },
+      {
+        "name": "GovernanceV3Ethereum.GRANULAR_GUARDIAN",
+        "address": "0x4457cA11E90f416Cc1D3a8E1cA41C0cdEcC251d4"
+      }
+    ],
+    "knownAdmins": [
+      {
+        "name": "MiscEthereum.PROXY_ADMIN",
+        "address": "0xD3cF979e676265e4f6379749DECe4708B9A22476"
+      },
+      {
+        "name": "MiscEthereum.PROXY_ADMIN_LONG",
+        "address": "0x86C3FfeE349A7cFf7cA88C449717B1b133bfb517"
+      }
+    ],
+    "knownImplementations": [
+      {
+        "name": "AaveV3Ethereum.POOL implementation at block 25423360",
+        "address": "0x728a138A4823392C2EFA55e028d434F526fE03CF"
+      },
+      {
+        "name": "AaveV3Ethereum.POOL_CONFIGURATOR implementation at block 25423360",
+        "address": "0xFF42Ce30054dcE7dc7C1282a9a497aa58eaBCe99"
+      },
+      {
+        "name": "AaveV3Ethereum.COLLECTOR implementation at block 25423360",
+        "address": "0x83b7Ce402A0E756E901C4A9d1cAfa27cA9572afC"
+      },
+      {
+        "name": "GovernanceV3Ethereum.PAYLOADS_CONTROLLER implementation at block 25423360",
+        "address": "0x7222182cB9c5320587b5148BF03eeE107AD64578"
+      },
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE implementation at block 25423360",
+        "address": "0x58BcB647C4beFf253B4B6996c62F737B783f2cDd"
+      }
+    ],
+    "knownGovernanceContracts": [
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE",
+        "address": "0x9AEE0B04504CeF83A65AC3f0e838D0593BCb2BC7"
+      },
+      {
+        "name": "GovernanceV3Ethereum.PAYLOADS_CONTROLLER",
+        "address": "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5"
+      }
+    ],
+    "knownProxyAddresses": [
+      {
+        "name": "AaveV3Ethereum.POOL",
+        "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+      },
+      {
+        "name": "AaveV3Ethereum.POOL_CONFIGURATOR",
+        "address": "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27"
+      },
+      {
+        "name": "AaveV3Ethereum.COLLECTOR",
+        "address": "0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c"
+      },
+      {
+        "name": "GovernanceV3Ethereum.PAYLOADS_CONTROLLER",
+        "address": "0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5"
+      },
+      {
+        "name": "GovernanceV3Ethereum.GOVERNANCE",
+        "address": "0x9AEE0B04504CeF83A65AC3f0e838D0593BCb2BC7"
+      }
+    ]
+  }
+}
