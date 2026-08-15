@@ -11,7 +11,7 @@ Onchain Radar turns confirmed on-chain evidence into structured, reviewable sign
 - Historical range scanning and confirmed-block live processing.
 - Bounded RPC policy with timeout, retries, adaptive range splitting, caching, and structured errors.
 - Deterministic event-to-alert mapping with stable IDs, severity reasons, and JSONL output.
-- EIP-1967 implementation/admin slot monitoring for explicitly configured proxies.
+- EIP-1967 implementation and admin slot monitoring for explicitly configured proxies.
 - Economic signals for large transfers, critical-contract outflows, drawdowns, concentration, minting, and explicit correlations.
 - Safe `execTransaction` decoding and policy checks for targets, selectors, operations, implementations, value, owners, thresholds, modules, guards, and fallback handlers.
 - Defensive MultiSend parsing with bounded nesting, path-qualified identities, per-suboperation policy, and effect correlation.
@@ -70,9 +70,9 @@ Individual verticals are available as `npm run demo:economic`, `npm run demo:saf
 
 Onchain Radar was also applied to historical Ethereum activity. The compact [Real-world case studies](docs/REAL_WORLD_CASES.md) cover:
 
-- KelpDAO / rsETH: a 116,500 rsETH adapter outflow, 99.80% drawdown, concentration, and correlated economic signals at block `24908285`.
-- ENS Meta-Governance Safe MultiSend: 17/17 packed operations reconstructed, with owner/threshold effects correlated from a real Safe transaction.
-- ENS Endowment / Zodiac Roles v2: Manager Safe and module envelopes followed into downstream MultiSend operations, including a visible approval-plus-delegatecall composition.
+- KelpDAO & rsETH: a 116,500 rsETH adapter outflow, 99.80% drawdown, concentration, and correlated economic signals at block `24908285`.
+- ENS Meta-Governance Safe MultiSend: 17/17 packed operations reconstructed, with owner and threshold effects correlated from a real Safe transaction.
+- ENS Endowment & Zodiac Roles v2: Manager Safe and module envelopes followed into downstream MultiSend operations, including a visible approval-plus-delegatecall composition.
 
 These are evidence summaries rather than runnable historical calibrations. Transaction links, blocks, addresses, representative alert output, and limitations are provided so the claims can be independently inspected on Ethereum. They do not demonstrate prevention, pre-execution detection, or exploit attribution.
 
@@ -101,7 +101,7 @@ Live mode is a continuous process, not a presentation command. It stops on check
 
 ## Alert model
 
-Each alert contains a stable `id`, chain and rule identity, severity, block/transaction evidence, a human-readable summary, and structured metadata. IDs do not depend on `createdAt`, so replay and local journal filtering are deterministic.
+Each alert contains a stable `id`, chain and rule identity, severity, block, transaction evidence, a human-readable summary, and structured metadata. IDs do not depend on `createdAt`, so replay and local journal filtering are deterministic.
 
 ## Repository map
 
@@ -116,7 +116,7 @@ Each alert contains a stable `id`, chain and rule identity, severity, block/tran
 
 ## Limitations
 
-This is a serious prototype, not a production monitoring service. It is post-execution only and requires explicit configuration for protocols, proxies, Safe policies, modules, and Zodiac wrappers. It does not provide mempool or trace/debug monitoring, automatic proxy discovery, generic custom-module decoding, prices/oracles, cross-chain verification, dashboards, external notifications, automated response, provider quorum/failover, or automatic reorg recovery.
+This is a serious prototype, not a production monitoring service. It is post-execution only and requires explicit configuration for protocols, proxies, Safe policies, modules, and Zodiac wrappers. It does not provide mempool or trace and debug monitoring, automatic proxy discovery, generic custom-module decoding, prices/oracles, cross-chain verification, dashboards, external notifications, automated response, provider failover, or automatic reorg recovery.
 
 Economic alerts are investigation signals, not proof of compromise, insolvency, exploit intent, or contagion. Safe analysis describes calldata and observed effects, not what a signer saw or intended.
 
