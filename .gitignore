@@ -3,10 +3,6 @@ dist/
 dist-tests/
 .env
 alerts/*.jsonl
-!alerts/economic-historical-calibration-001.jsonl
-!alerts/safe-multisend-historical-calibration-001.jsonl
-!alerts/safe-modules-historical-calibration-001.jsonl
-!alerts/ens-endowment-bal-cow-zodiac-permission-calibration-001.jsonl
 artifacts/
 state/
 npm-debug.log*

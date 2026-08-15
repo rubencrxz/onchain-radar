@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the architecture frozen for the 2026-08-02 product demo. It includes the reusable processor, bounded RPC, economic anomalies, confirmed live cursor, Safe/MultiSend/native-event/module monitoring, and the opt-in Zodiac Roles v2 adapter. The freeze changes no detector, ID, severity, or execution behavior. v0.1 behavior remains compatible when optional sections are absent.
+This document describes the public architecture: reusable processing, bounded RPC, economic anomalies, confirmed live cursor, Safe/MultiSend/native-event/module monitoring, and the opt-in Zodiac Roles v2 adapter. Optional sections preserve the core behavior when omitted.
 
 ## Text Diagram
 
@@ -278,17 +278,17 @@ alerts/ethereum-<START_BLOCK>-<END_BLOCK>-alerts.jsonl
 
 Each line is one complete JSON alert object. This boundary is intentionally small; no plugin system or external integration is included.
 
-### Formal Regression Tests
+### Regression Tests
 
 Files: `tests/*.test.ts`, `tsconfig.test.json`
 
-`npm test` uses TypeScript plus Node's built-in test runner. The frozen suite has 181 logical declarations across 24 files and is deterministic/offline. In addition to v0.1 regressions, it covers RPC policy, economics, live checkpoint/journal behavior, Safe direct/MultiSend/native/module/Zodiac paths, stable IDs, correlation, restart deduplication, and fail-closed integration. `npm run smoke` remains a separate quick compatibility check.
+`npm test` uses TypeScript plus Node's built-in test runner. The compact suite is deterministic/offline and focuses on RPC policy, economics, live checkpoint/journal behavior, Safe/MultiSend/module/Zodiac paths, stable IDs, correlation, and fail-closed processing. `npm run smoke` remains a separate quick compatibility check.
 
 ### Bounded Zodiac permission evidence
 
 File: `src/safe/zodiacPermissions.ts`
 
-Historical calibration can optionally read code and fixed Roles v2 storage through `PolicyRpcClient` after verifying a supported EIP-1167 mastercopy. It observes role target/function headers, execution options, transaction unwrappers and bounded condition bytecode. The component is read-only and calibration-oriented: it does not modify detector decisions, policy configuration or alert IDs, and it reports scoped condition trees as partially evaluated unless the executed hash memberships can be demonstrated explicitly.
+The bounded permission reader can read code and fixed Roles v2 storage through `PolicyRpcClient` after verifying a supported EIP-1167 mastercopy. It observes role target/function headers, execution options, transaction unwrappers, and bounded condition bytecode. Unsupported condition semantics remain explicit rather than being treated as authorized.
 
 ## Historical Data Flow
 
@@ -308,7 +308,7 @@ Live cycles use the same steps for each confirmed block, plus bounded economic l
 
 ## Design Constraints
 
-The frozen demo intentionally avoids:
+The public release intentionally avoids:
 
 - production deployment and automatic reorg rollback;
 - database/indexer architecture and distributed exactly-once delivery;
@@ -320,15 +320,15 @@ The frozen demo intentionally avoids:
 - AI enrichment;
 - dashboard/UI.
 
-The original v0.1 did not include live polling. The later live foundation adds `src/live.ts`, `src/liveScanner.ts`, `src/liveCursor.ts`, `src/checkpoint.ts`, and `src/alertJournal.ts`. It processes confirmed blocks in bounded sequential cycles, evaluates EIP-1967 per block, uses bounded economic lookback, filters durable alert IDs, and commits the checkpoint after sinks and journal. The minimum canonicality policy stops on a checkpoint hash mismatch; automatic rollback remains deferred. `npm run live:replay:kelp` is an offline fixture replay.
+The live foundation adds `src/live.ts`, `src/liveScanner.ts`, `src/liveCursor.ts`, `src/checkpoint.ts`, and `src/alertJournal.ts`. It processes confirmed blocks in bounded sequential cycles, evaluates EIP-1967 per block, uses bounded economic lookback, filters durable alert IDs, and commits the checkpoint after sinks and journal. The minimum canonicality policy stops on a checkpoint hash mismatch; automatic rollback remains deferred.
 
-The Safe vertical is invoked inside the same historical runner, so live cycles inherit identical decoding, policy, IDs and correlation. `npm run live:replay:safe` is synthetic and does not represent Bybit or signer-visible UI behavior.
+The Safe vertical is invoked inside the same historical runner, so live cycles inherit identical decoding, policy, IDs and correlation. The `demo:*` commands exercise synthetic inputs and do not represent signer-visible UI behavior.
 
-Configured MultiSend expansion uses that same invocation. Its packed parser is fully offline-testable; the live journal deduplicates path-qualified IDs after overlap or restart. `npm run live:replay:multisend` is synthetic and does not establish signer intent or historical incident behavior.
+Configured MultiSend expansion uses that same invocation. Its packed parser is fully offline-testable; the live journal deduplicates path-qualified IDs after overlap or restart. Synthetic demos do not establish signer intent or historical incident behavior.
 
-Native Safe event decoding and correlation are shared by historical and live execution without a second detector path. `npm run live:replay:safe-events` demonstrates this offline, including journal reload. It is synthetic and does not model module execution or signer-visible intent.
+Native Safe event decoding and correlation are shared by historical and live execution without a second detector path. The Safe-events demo demonstrates this offline, including journal reload. It is synthetic and does not model module execution or signer-visible intent.
 
-Module-derived direct/MultiSend calls reuse the same classifier, parser and correlation boundaries. Their new IDs include module address and event log index; existing owner-path IDs remain byte-for-byte unchanged. `npm run live:replay:safe-modules` is synthetic.
+Module-derived direct/MultiSend calls reuse the same classifier, parser and correlation boundaries. Their new IDs include module address and event log index; existing owner-path IDs remain byte-for-byte unchanged. The Safe-modules demo is synthetic.
 
 Malformed, limit-exceeded, or depth-exceeded required MultiSend analysis is journaled after local sink delivery but raises before live checkpoint commit. Retries are deduplicated while the cursor remains pinned for explicit operator recovery.
 

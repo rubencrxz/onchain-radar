@@ -1,10 +1,10 @@
 # Limitations and Next Steps
 
-This document defines the 2026-08-02 frozen demo boundary: the v0.1 administrative core plus reusable processing, bounded RPC, economics, confirmed live execution, Safe/MultiSend/native events/modules, and the bounded Zodiac Roles v2 adapter.
+This document defines the public product boundary: deterministic processing, bounded RPC, economics, confirmed live execution, Safe/MultiSend/native events/modules, and the bounded Zodiac Roles v2 adapter.
 
 ## Capability boundary at a glance
 
-| Detects | Post-execution only | Outside the frozen demo |
+| Detects | Post-execution only | Outside this release |
 | --- | --- | --- |
 | Configured logs, balances, state and storage changes | Safe/module calldata after mining | Mempool and simulation |
 | Safe direct, configured MultiSend, standard module events and configured Zodiac wrappers | Policy compliance and effect correlation | Signer UI or human intent |
@@ -46,9 +46,7 @@ This document defines the 2026-08-02 frozen demo boundary: the v0.1 administrati
 
 The optional `economicMonitoring` pipeline now provides large-transfer, critical outflow, balance drawdown, outflow-concentration, large-mint, and drawdown-plus-concentration alerts. It is deterministic and historical, uses no external prices/oracles, and remains disabled for existing configs that omit the section.
 
-The checked-in economic calibration fixture reproduces the KelpDAO/rsETH Ethereum adapter release and later Aave deposits. It shows useful same-block incident detection but no warning before the bridge extraction. The current historical runner still writes only after the requested range completes.
-
-The live foundation adds confirmed-block cursoring, atomic checkpoints, durable alert-ID journaling, per-block EIP-1967 comparisons, bounded economic lookback, graceful shutdown, and offline KelpDAO replay. It intentionally does not add automatic rollback, external sinks, or production deployment.
+The live foundation adds confirmed-block cursoring, atomic checkpoints, durable alert-ID journaling, per-block EIP-1967 comparisons, bounded economic lookback, graceful shutdown, and deterministic demos. It intentionally does not add automatic rollback, external sinks, or production deployment.
 
 ## Current RPC Robustness
 
@@ -72,7 +70,7 @@ The confirmed-block loop, atomic checkpoint and durable journal exist. Productio
 
 ### Safe Coverage Expansion
 
-Configured standard MultiSend and Zodiac Roles v2 Manager Safe decoding are complete for their explicit registries and limits. Bounded BAL/CoW permission calibration reduces Balanced from five to one CRITICAL while retaining one high-sensitivity composition signal and two warnings. Generic condition evaluation, arbitrary opaque modules and a real administrative-effect sample remain absent; signature revalidation, signer-interface evidence and frontend/DNS monitoring remain separate concerns.
+Configured standard MultiSend and Zodiac Roles v2 Manager Safe decoding are complete for their explicit registries and limits. Generic condition evaluation, arbitrary opaque modules, signature revalidation, signer-interface evidence, and frontend/DNS monitoring remain separate concerns.
 
 ### Governance Proposal Metadata Mapping
 

@@ -34,8 +34,6 @@ Each cycle processes each target block with the existing processor and uses a bo
 
 Defaults are `LIVE_CONFIRMATIONS=3`, `LIVE_POLL_INTERVAL_MS=12000`, `LIVE_MAX_BLOCKS_PER_CYCLE=100`, `LIVE_CHECKPOINT_PATH=state/live-checkpoint.json`, `LIVE_ALERT_JOURNAL_PATH=state/live-alert-journal.jsonl`, and `LIVE_ALERT_OUTPUT_PATH=state/live-alerts.jsonl`. Invalid values fail before the loop starts.
 
-## Replay and limits
+## Limits
 
-`npm run live:replay:kelp` is an offline replay of the stored KelpDAO calibration artifact. It is explicitly a fixture demonstration, not live RPC. It shows no incident alert at block 24908284, extraction alerts at 24908285, restart journal recovery, zero duplicate replay deliveries, and the documented ~192-second gap to the first Aave interaction.
-
-The implementation does not provide automatic reorg rollback, durable economic state beyond replay/lookback, external integrations, provider failover, prices, or production monitoring guarantees.
+The implementation does not provide automatic reorg rollback, durable economic state beyond replay/lookback, external integrations, provider failover, prices, or production monitoring guarantees. The `demo:*` commands exercise the same state and journal boundaries with deterministic synthetic inputs.
